@@ -1,39 +1,35 @@
 # XJobAgent — AI-Powered Job Application Automation Platform
 
-XJobAgent is a full-stack AI-powered job application automation platform designed to simplify and accelerate the job application process.
+XJobAgent is a full-stack job application automation platform that helps simplify and speed up the process of applying to jobs.
 
-The platform analyzes unstructured job descriptions, extracts important job information, matches requirements against a user's resume, generates personalized application emails, and sends applications directly through the user's authenticated Gmail account with the resume attached.
+The platform analyzes job descriptions, extracts important job information, matches job requirements with a user's resume, generates personalized application emails, and sends applications directly through the user's authenticated Gmail account with the resume attached.
 
----
+## Overview
 
-## 🚀 Overview
+Applying to multiple jobs manually can be repetitive and time-consuming. XJobAgent brings the major steps of the application process into one platform.
 
-Applying to multiple jobs manually can be repetitive and time-consuming. XJobAgent automates the major steps involved in the application workflow through a single platform.
+The project uses a React-based frontend, a Node.js and Express.js backend, MongoDB for data storage, Groq for AI/LLM processing, and Google services for authentication and email delivery.
 
-The system combines a modern **React frontend**, **Node.js/Express backend**, **MongoDB database**, **Groq-powered AI/LLM integration**, **Gmail API**, and **Google OAuth 2.0**.
+### What the platform does
 
-### What XJobAgent Can Do
+* Analyzes unstructured job descriptions
+* Extracts company, role, recipient, requirements, and other job details
+* Matches job requirements with the user's resume
+* Generates personalized application emails
+* Supports PDF resume upload and management
+* Provides secure user authentication
+* Connects authenticated Gmail accounts
+* Sends HTML or plain-text application emails
+* Automatically attaches the user's PDF resume
+* Maintains application history
+* Tracks application status and timing information
+* Provides a dashboard for managing applications and resumes
 
-* Analyze unstructured job descriptions
-* Extract company, role, recipient, requirements, and other job details
-* Match job requirements with the user's resume
-* Generate personalized, context-aware application emails
-* Parse and manage PDF resumes
-* Authenticate users securely
-* Connect authenticated Gmail accounts
-* Send HTML/plain-text emails through Gmail
-* Automatically attach the user's PDF resume
-* Maintain application history
-* Track application status and timing metrics
-* Provide a centralized dashboard for managing applications and resumes
+## Key Features
 
----
+### AI-Powered Job Analysis
 
-# ✨ Key Features
-
-## 🤖 AI-Powered Job Analysis
-
-XJobAgent uses **Groq-powered LLM processing** to analyze unstructured job descriptions and extract relevant information such as:
+XJobAgent uses Groq-powered LLM processing to analyze job descriptions and extract relevant information such as:
 
 * Company name
 * Job role
@@ -43,11 +39,9 @@ XJobAgent uses **Groq-powered LLM processing** to analyze unstructured job descr
 * Responsibilities
 * Other relevant job details
 
-The extracted information is then used throughout the application workflow.
+The extracted information is then used in the rest of the application workflow.
 
----
-
-## 📄 Resume Management
+### Resume Management
 
 Users can upload and manage their resumes in PDF format.
 
@@ -60,62 +54,52 @@ The platform supports:
 * Secure resume path validation
 * Automatic resume attachment during application delivery
 
----
+### Resume-Job Matching
 
-## 🎯 Resume–Job Matching
+The system compares information from the user's resume with the requirements extracted from the job description.
 
-The system compares the user's resume information with extracted job requirements to help generate application content that is relevant to the specific job.
+This helps generate application content that is relevant to the particular job opportunity.
 
-This allows the generated application email to be more aligned with the requirements of the particular job opportunity.
+### Personalized Application Emails
 
----
-
-## ✉️ AI-Generated Application Emails
-
-Instead of sending the same generic message to every company, XJobAgent generates personalized application emails based on:
+Instead of sending the same generic email to every company, XJobAgent generates personalized application emails using:
 
 * Job description
 * Extracted job information
 * User resume
 * Job requirements
-* Recipient/company information
+* Recipient and company information
 
-The generated email can be delivered as **HTML or plain text**.
+The generated email can be sent as HTML or plain text.
 
----
+### Authentication
 
-## 🔐 Secure Authentication
-
-The platform provides multi-user authentication using:
+The platform supports multi-user authentication using:
 
 * JWT
 * bcrypt
 * Protected frontend routes
 * User-scoped data management
 
-Each user's resumes and application history are managed within their authenticated account.
+Each user's resumes and application history are associated with their authenticated account.
 
----
+### Google OAuth 2.0 and Gmail API
 
-## 🔑 Google OAuth 2.0 & Gmail API
+Users can connect their Gmail account through Google OAuth 2.0.
 
-Users can connect their Gmail account using **Google OAuth 2.0**.
+Once authenticated, the application can use the Gmail API to send personalized job applications from the user's Gmail account.
 
-After authentication, the application can use the **Gmail API** to send personalized job applications from the user's authenticated Gmail account.
-
-### Features
+Features include:
 
 * Google OAuth 2.0 authentication
 * Gmail account connection
-* HTML/plain-text email delivery
+* HTML and plain-text email delivery
 * Automatic PDF resume attachment
 * Authenticated email sending
 
----
+### Application Dashboard
 
-## 📊 Application Dashboard
-
-The React dashboard provides a centralized interface for managing the job application workflow.
+The React dashboard provides a centralized interface for managing the application process.
 
 It includes:
 
@@ -123,15 +107,13 @@ It includes:
 * Resume management
 * Application history
 * Application status tracking
-* Timing/performance metrics
+* Timing and performance metrics
 * Application details
 * Gmail connection management
 
----
+### Performance and Reliability
 
-## ⚡ Performance Optimization
-
-The application includes several performance and reliability improvements, including:
+The application includes several improvements focused on performance and reliable email delivery:
 
 * SMTP connection pooling
 * Transporter warm-up
@@ -141,239 +123,204 @@ The application includes several performance and reliability improvements, inclu
 * Secure resume path validation
 * Reliable email delivery
 
-The automated workflow can reduce application processing time from approximately **1 minute manually to around 3–4 seconds per application**, depending on the workflow and external services involved.
+The automated workflow can reduce application processing time from approximately 1 minute manually to around 3–4 seconds per application, depending on external services and network conditions.
 
----
+## How XJobAgent Works
 
-# 🔄 How XJobAgent Works
-
-The overall workflow can be summarized as:
+The overall application flow is:
 
 ```text
-                         User
-                           │
-                           ▼
-                    Login / Signup
-                           │
-                           ▼
-                    Upload Resume
-                           │
-                           ▼
-                 Provide Job Description
-                           │
-                           ▼
-                    AI Job Analysis
-                           │
-                           ▼
-                  Extract Job Details
-                           │
-              ┌────────────┼────────────┐
-              ▼            ▼            ▼
-           Company        Role      Recipient
-              │            │            │
-              └────────────┼────────────┘
-                           │
-                           ▼
-                  Job Requirements
-                           │
-                           ▼
-                 Resume ↔ Job Matching
-                           │
-                           ▼
-                  AI Email Generation
-                           │
-                           ▼
-                   Google OAuth 2.0
-                           │
-                           ▼
-                 Authenticated Gmail
-                           │
-                           ▼
-              Email + PDF Resume Attachment
-                           │
-                           ▼
-                       Gmail API
-                           │
-                           ▼
-                   Application Sent
-                           │
-                           ▼
-              Application History & Status
+User
+  |
+  v
+Login / Signup
+  |
+  v
+Upload Resume
+  |
+  v
+Provide Job Description
+  |
+  v
+AI Job Analysis
+  |
+  v
+Extract Job Details
+  |
+  +-- Company
+  +-- Role
+  +-- Recipient
+  +-- Requirements
+  +-- Skills
+  |
+  v
+Resume-Job Matching
+  |
+  v
+AI Email Generation
+  |
+  v
+Google OAuth 2.0
+  |
+  v
+Authenticated Gmail Account
+  |
+  v
+Email + PDF Resume Attachment
+  |
+  v
+Gmail API
+  |
+  v
+Application Sent
+  |
+  v
+Application History and Status
 ```
 
----
+## System Architecture
 
-# 🏗️ System Architecture
-
-XJobAgent follows a full-stack architecture consisting of:
-
-* React + Vite + Tailwind CSS frontend
-* Node.js + Express.js backend
-* MongoDB database
-* Groq-powered AI/LLM integration
-* Google OAuth 2.0
-* Gmail API
-* PDF processing and resume management
+XJobAgent follows a full-stack architecture consisting of a React frontend, Node.js and Express.js backend, MongoDB database, AI/LLM integration, and Google services for authentication and email delivery.
 
 ```text
-                         ┌──────────────────────┐
-                         │        User          │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                    ┌─────────────────────────────┐
-                    │   React + Vite + Tailwind   │
-                    │          Frontend            │
-                    └──────────────┬──────────────┘
-                                   │
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │     Node.js + Express.js     │
-                    │           Backend             │
-                    └──────────┬───────────┬───────┘
-                               │           │
-                               │           │
-                               ▼           ▼
-                    ┌───────────────┐  ┌─────────────────┐
-                    │    MongoDB    │  │   Groq / LLM    │
-                    │    Database   │  │  AI Integration │
-                    └───────────────┘  └─────────────────┘
-                               │
-                               │
-                               ▼
-                    ┌─────────────────────────┐
-                    │  Application Management │
-                    │   & User Data Storage   │
-                    └─────────────────────────┘
+                         +------------------+
+                         |       User       |
+                         +--------+---------+
+                                  |
+                                  v
+                    +---------------------------+
+                    | React + Vite + Tailwind   |
+                    |         Frontend          |
+                    +-------------+-------------+
+                                  |
+                                  v
+                    +---------------------------+
+                    |   Node.js + Express.js    |
+                    |         Backend           |
+                    +---------+----------+------+
+                              |          |
+                              |          |
+                              v          v
+                       +----------+  +-------------+
+                       | MongoDB  |  | Groq / LLM  |
+                       | Database |  | AI Services |
+                       +----------+  +-------------+
+                              |
+                              v
+                    +---------------------------+
+                    | Application & User Data   |
+                    +---------------------------+
 
-                              │
-                              ▼
-                    ┌─────────────────────────┐
-                    │    Google OAuth 2.0     │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │       Gmail API         │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
+                                  |
+                                  v
+                    +---------------------------+
+                    |     Google OAuth 2.0      |
+                    +-------------+-------------+
+                                  |
+                                  v
+                    +---------------------------+
+                    |        Gmail API          |
+                    +-------------+-------------+
+                                  |
+                                  v
                          Application Email
 ```
 
----
+## Tech Stack
 
-# 🛠️ Tech Stack
+### Frontend
 
-## 🎨 Frontend
+| Technology   | Purpose                                |
+| ------------ | -------------------------------------- |
+| React.js     | Component-based user interface         |
+| Vite         | Frontend development and build tooling |
+| Tailwind CSS | Responsive and utility-first styling   |
 
-| Technology       | Purpose                                |
-| ---------------- | -------------------------------------- |
-| **React.js**     | Component-based user interface         |
-| **Vite**         | Frontend development and build tooling |
-| **Tailwind CSS** | Responsive and utility-first styling   |
+### Backend
 
----
+| Technology | Purpose                       |
+| ---------- | ----------------------------- |
+| Node.js    | Backend runtime               |
+| Express.js | REST API and server framework |
 
-## ⚙️ Backend
+### Database
 
-| Technology     | Purpose                       |
-| -------------- | ----------------------------- |
-| **Node.js**    | Backend runtime               |
-| **Express.js** | REST API and server framework |
+| Technology | Purpose                                                            |
+| ---------- | ------------------------------------------------------------------ |
+| MongoDB    | Storing users, resumes, applications, and related application data |
 
----
+### AI and LLM Integration
 
-## 🗄️ Database
+| Technology      | Purpose                                                                     |
+| --------------- | --------------------------------------------------------------------------- |
+| Groq            | LLM-powered job analysis and personalized email generation                  |
+| LLM Integration | Extracting job information and generating context-aware application content |
 
-| Technology  | Purpose                                                                 |
-| ----------- | ----------------------------------------------------------------------- |
-| **MongoDB** | Database for users, resumes, applications, and related application data |
+### Authentication and Authorization
 
----
+| Technology       | Purpose                                      |
+| ---------------- | -------------------------------------------- |
+| JWT              | User authentication and protected API access |
+| bcrypt           | Password hashing                             |
+| Google OAuth 2.0 | Gmail account authorization                  |
 
-## 🤖 AI & LLM Integration
+### Email and Communication
 
-| Technology          | Purpose                                                                     |
-| ------------------- | --------------------------------------------------------------------------- |
-| **Groq**            | LLM-powered job analysis and personalized email generation                  |
-| **LLM Integration** | Extracting job information and generating context-aware application content |
+| Technology | Purpose                                     |
+| ---------- | ------------------------------------------- |
+| Gmail API  | Sending personalized job application emails |
+| SMTP       | Email delivery and performance optimization |
 
----
-
-## 🔐 Authentication & Authorization
-
-| Technology           | Purpose                                      |
-| -------------------- | -------------------------------------------- |
-| **JWT**              | User authentication and protected API access |
-| **bcrypt**           | Secure password hashing                      |
-| **Google OAuth 2.0** | Secure Gmail account authorization           |
-
----
-
-## 📧 Email & Communication
-
-| Technology    | Purpose                                     |
-| ------------- | ------------------------------------------- |
-| **Gmail API** | Sending personalized job application emails |
-| **SMTP**      | Email delivery and performance optimization |
-
----
-
-## 📄 Document Processing
+### Document Processing
 
 * PDF resume parsing
 * PDF buffering
 * Resume extraction and processing
 * Automatic PDF resume attachment
 
----
-
-# 📁 Project Structure
+## Project Structure
 
 ```text
 Job-Agent/
-│
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── models/
-│   │   ├── prompts/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── server.js
-│   │
-│   ├── test/
-│   ├── resume/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── README.md
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── contexts/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   ├── App.jsx
-│   │   ├── index.css
-│   │   └── main.jsx
-│   │
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js
-│
-├── .gitignore
-└── README.md
+|
++-- backend/
+|   +-- src/
+|   |   +-- controllers/
+|   |   +-- middleware/
+|   |   +-- models/
+|   |   +-- prompts/
+|   |   +-- routes/
+|   |   +-- services/
+|   |   +-- utils/
+|   |   +-- server.js
+|   |
+|   +-- test/
+|   +-- resume/
+|   +-- package.json
+|   +-- package-lock.json
+|   +-- README.md
+|
++-- frontend/
+|   +-- public/
+|   +-- src/
+|   |   +-- components/
+|   |   +-- contexts/
+|   |   +-- pages/
+|   |   +-- services/
+|   |   +-- utils/
+|   |   +-- App.jsx
+|   |   +-- index.css
+|   |   +-- main.jsx
+|   |
+|   +-- package.json
+|   +-- package-lock.json
+|   +-- vite.config.js
+|
++-- .gitignore
++-- README.md
 ```
 
----
-
-# 🔐 Security
+## Security
 
 The application includes several security-focused mechanisms:
 
@@ -387,45 +334,44 @@ The application includes several security-focused mechanisms:
 * Environment-based configuration
 * Timeout controls for external operations
 
-> **Important:** Never commit real API keys, OAuth credentials, database credentials, passwords, or other secrets to the repository.
+Never commit real API keys, OAuth credentials, database credentials, passwords, or other sensitive information to the repository.
 
-Use environment variables for sensitive configuration.
+Sensitive configuration should be stored using environment variables.
 
----
+## Core Application Flow
 
-# ⚙️ Core Application Flow
-
-## 1. User Authentication
+### 1. User Authentication
 
 A user creates an account or logs in using the authentication system.
 
 ```text
 Signup / Login
-      ↓
+      |
+      v
 JWT Authentication
-      ↓
+      |
+      v
 Protected User Session
 ```
 
----
-
-## 2. Resume Upload
+### 2. Resume Upload
 
 The user uploads a PDF resume.
 
 ```text
 PDF Resume
-     ↓
+    |
+    v
 Resume Processing
-     ↓
+    |
+    v
 Resume Storage / Parsing
-     ↓
+    |
+    v
 User Resume Profile
 ```
 
----
-
-## 3. Job Analysis
+### 3. Job Analysis
 
 The user provides a job description.
 
@@ -433,16 +379,16 @@ The AI workflow analyzes the content and extracts useful information.
 
 ```text
 Job Description
-       ↓
-   Groq / LLM
-       ↓
+      |
+      v
+  Groq / LLM
+      |
+      v
 Company + Role + Recipient
 + Requirements + Skills
 ```
 
----
-
-## 4. Resume Matching
+### 4. Resume Matching
 
 The extracted requirements are compared against the user's resume information.
 
@@ -450,13 +396,12 @@ The extracted requirements are compared against the user's resume information.
 Job Requirements
        +
 User Resume
-       ↓
-Resume–Job Matching
+       |
+       v
+Resume-Job Matching
 ```
 
----
-
-## 5. Email Generation
+### 5. Email Generation
 
 The AI generates a personalized application email based on the job and resume context.
 
@@ -464,29 +409,29 @@ The AI generates a personalized application email based on the job and resume co
 Job Details
     +
 Resume Context
-    ↓
+    |
+    v
 AI Email Generation
-    ↓
+    |
+    v
 Personalized Application Email
 ```
 
----
-
-## 6. Gmail Authorization
+### 6. Gmail Authorization
 
 The user connects their Gmail account through Google OAuth 2.0.
 
 ```text
 User
- ↓
+ |
+ v
 Google OAuth 2.0
- ↓
+ |
+ v
 Authenticated Gmail Account
 ```
 
----
-
-## 7. Application Delivery
+### 7. Application Delivery
 
 The generated email is sent through the authenticated Gmail account with the PDF resume attached.
 
@@ -494,25 +439,23 @@ The generated email is sent through the authenticated Gmail account with the PDF
 Personalized Email
        +
 PDF Resume
-       ↓
+       |
+       v
    Gmail API
-       ↓
+       |
+       v
 Application Delivered
 ```
 
----
+### 8. Application Tracking
 
-## 8. Application Tracking
+The application is stored in the user's application history so previous applications and their statuses can be managed from the dashboard.
 
-The application is stored in the user's application history so that previous applications and their statuses can be managed from the dashboard.
-
----
-
-# 🧪 Testing
+## Testing
 
 The backend contains automated tests covering multiple application workflows and regression scenarios.
 
-### Testing Areas
+Testing areas include:
 
 * Job skills extraction
 * Job description extraction
@@ -526,53 +469,60 @@ The backend contains automated tests covering multiple application workflows and
 
 Run the backend tests using the project's configured npm test command.
 
----
+## Performance
 
-# 📈 Performance
+One of the main goals of XJobAgent is to reduce repetitive manual work involved in job applications.
 
-One of the main goals of XJobAgent is reducing repetitive manual work involved in job applications.
-
-## Traditional Manual Process
+### Traditional Manual Process
 
 ```text
 Read Job Description
-        ↓
+        |
+        v
 Understand Requirements
-        ↓
+        |
+        v
 Check Resume
-        ↓
+        |
+        v
 Write Email
-        ↓
+        |
+        v
 Attach Resume
-        ↓
+        |
+        v
 Open Gmail
-        ↓
+        |
+        v
 Send Email
 ```
 
-## XJobAgent Automated Process
+### XJobAgent
 
 ```text
 Job Description
-      ↓
+      |
+      v
 AI Analysis
-      ↓
+      |
+      v
 Resume Matching
-      ↓
+      |
+      v
 AI Email Generation
-      ↓
+      |
+      v
 Gmail API
-      ↓
+      |
+      v
 Application Sent
 ```
 
-The automated workflow can reduce processing time from approximately **1 minute manually to around 3–4 seconds per application**, depending on external API and network performance.
+The automated workflow can reduce processing time from approximately 1 minute manually to around 3–4 seconds per application, depending on external API and network performance.
 
----
+## Why XJobAgent?
 
-# 🌟 Why XJobAgent?
-
-XJobAgent brings multiple job-search tasks into one automated workflow:
+XJobAgent brings multiple job application tasks into a single workflow.
 
 | Traditional Process                   | XJobAgent                        |
 | ------------------------------------- | -------------------------------- |
@@ -585,11 +535,9 @@ XJobAgent brings multiple job-search tasks into one automated workflow:
 | Manually open Gmail                   | Gmail API integration            |
 | Repetitive workflow                   | Automated end-to-end workflow    |
 
----
+## Future Improvements
 
-# 🚀 Future Improvements
-
-Potential future enhancements include:
+Potential future improvements include:
 
 * More job-board integrations
 * Automated job discovery
@@ -601,11 +549,9 @@ Potential future enhancements include:
 * Enhanced AI-based career recommendations
 * Application success analytics
 
----
+## Project Highlights
 
-# 🌟 Project Highlights
-
-XJobAgent demonstrates practical experience with:
+This project demonstrates practical experience with:
 
 * Full-stack web development
 * REST API development
@@ -623,22 +569,9 @@ XJobAgent demonstrates practical experience with:
 * Automated testing
 * Responsive UI development
 
----
-
-# 📄 License
-
-Add the appropriate license for this project here.
-
----
-
-# 👨‍💻 Author
+## Author
 
 **Lokesh Chahar**
 
 GitHub: [@Lokeshchahar-coder](https://github.com/Lokeshchahar-coder)
 
----
-
-## ⭐ If you find this project useful
-
-Consider giving the repository a star ⭐ and exploring the project.
