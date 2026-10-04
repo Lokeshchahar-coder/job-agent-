@@ -1,0 +1,28 @@
+{
+  "name": "job-application-agent",
+  "version": "1.0.0",
+  "description": "Personal AI Job Application Agent Backend",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "node test/job-skills.test.js && node test/jd-extractor.test.js && node test/email-context.test.js && node test/email-instruction.test.js && node test/profile-link.test.js && node test/profile-signature-regression.test.js && node test/profile-finalize-regression.test.js && node test/subject-resolution-regression.test.js && node test/email-body-quality-regression.test.js && npm run test:runtime",
+    "test:runtime": "node --loader ./test/runtime-harness/loader.mjs --test ./test/runtime-harness/runtime-path.test.mjs"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "googleapis": "^176.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.4",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.5",
+    "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
